@@ -1,0 +1,8 @@
+0:
+  item: STONE:1
+  buy: 1.5
+  sell: 0.0
+1:
+  item: COBBLESTONE
+  buy: 2.0
+  sell: 1.0
