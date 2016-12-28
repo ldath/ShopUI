@@ -199,12 +199,12 @@ public class ShopInteractListener implements Listener{
 			}
 			case RIGHT:{
 				final int quantity = shopItem.getQuantityDefault();
-				if(priceSell < 0.01){ // || !playerInv.containsAtLeast(shopStack,quantity)
+				if(priceSell < 0.01 || !playerInv.containsAtLeast(shopStack,quantity)){
 					soundDenied(p);
 					break;
 				}
 
-				final Map<Enchantment,Integer> shopStackEnchantments = shopStack.getEnchantments();
+/*				final Map<Enchantment,Integer> shopStackEnchantments = shopStack.getEnchantments();
 				int amount = 0;
 				for(Map.Entry<Integer,? extends ItemStack> iStack : playerInv.all(shopStack.getType()).entrySet()){
 					if(iStack.getValue().getDurability() == shopStack.getDurability() && iStack.getValue().getEnchantments().equals(shopStackEnchantments)){
@@ -218,14 +218,13 @@ public class ShopInteractListener implements Listener{
 				if(amount < quantity){
 					soundDenied(p);
 					break;
-				}
+				}*/
 
 				if(playerInv.removeItem(shopStack).isEmpty()){
 					new VaultTransactionTask(p,priceSell,shopStack.getType()).runTaskAsynchronously(plugin);
 					p.sendMessage(prefix + "You sold " + quantity + " " + getFriendlyName(shopStack) + " for " + fmt(priceSell) + currencyName + ".");
 					soundSuccess(p);
 				}else{
-					plugin.getLogger().warning("Failed transaction: " + p.getName() + " " + shopStack.getType().toString());
 					soundDenied(p);
 				}
 				break;
