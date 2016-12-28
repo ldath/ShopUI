@@ -6,7 +6,7 @@
 
     <groupId>us.blockbox.shopui</groupId>
     <artifactId>ShopUI</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.3-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
